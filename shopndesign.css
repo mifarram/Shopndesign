@@ -1,0 +1,271 @@
+@import url(https://mifarram.github.io/Shopndesign-Fonts/arabicfont.css?family=HelveticaNeue:wght@200;300;400;500;600;700;800;900;1000&display=swap);
+*,
+body,
+html {
+  font-family: HelveticaNeue, sans-serif !important;
+}
+body {
+  background: #fff !important;
+}
+.top-navbar {
+  background: #000080;
+  color: #fff !important;
+}
+
+.top-navbar .s-search-input {
+    border-style: none;
+    background-color: rgb(255 255 255);
+}
+
+[dir='ltr'] .s-slider-block__title h2,
+[dir='rtl'] .s-slider-block__title h2 {
+  font-size: 1.5rem !important;
+  color: #000080 !important;
+}
+#mainnav .container,
+.s-block.s-block--banners.container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+#mainnav .inner > *,
+.breadcrumbs li > *,
+.main-nav-container i,
+.main-nav-container.fixed-header i {
+  color: #000080 !important;
+}
+#whatsappButton i,
+.store-footer__inner > *,
+.testimonial {
+  color: #fff !important;
+}
+.s-slider-block__title-right {
+  flex-grow: 1;
+  text-align: center;
+}
+.main-nav-container.fixed-header img {
+  max-height: 5rem !important;
+}
+.s-block {
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+.banner--fixed img {
+  background: 0 0 !important;
+}
+[dir='rtl'] .s-slider-block__title h2 {
+  text-align: right;
+}
+[dir='ltr'] .s-slider-block__title h2 {
+  text-align: left;
+}
+.s-product-card-vertical {
+  flex-direction: column;
+  outline: transparent solid 1px !important;
+}
+.swiper-wrapper {
+  margin: 30px 0 !important;
+}
+#mainnav .inner,
+.main-nav-container.shadow-default.bg-white.fixed-pinned animated.fixed-header,
+.s-slider-nav-arrow:not(:disabled):hover {
+  background-color: #fff !important;
+}
+.banner-entry,
+.s-block--hero-slider .swiper-slide,
+.s-block--hero-slider .swiper-slide .swiper-lazy:after,
+section.s-block--banners .grid {
+  background-color: transparent !important;
+}
+.mm-spn.mm-spn--navbar:after {
+  text-align: center !important;
+}
+.s-product-card-content-title a {
+  text-align: center !important;
+  font-size: 1rem !important;
+}
+.main-menu,
+.s-product-card-content-sub {
+  justify-content: center !important;
+}
+.s-product-card-price,
+.s-product-card-sale-price * {
+  font-size: 1rem !important;
+}
+.s-product-card-image img {
+  max-height: 350px !important;
+}
+.s-block.s-block--fixed-banner > .container,
+salla-slider.photos-slider .swiper-slide {
+  width: 100% !important;
+}
+.s-product-card-content-footer button {
+  background: #ff991c !important;
+  border: 1px solid #ff991c;
+  border-radius: 15px !important;
+  color: #fff !important;
+  font-size: 1rem !important;
+  padding: 10px !important;
+}
+@media (min-width: 1280px) {
+  .s-block.s-block--fixed-banner > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+#whatsappButton:hover,
+.s-block--features__item .feature-icon,
+.swiper-pagination-bullet-active,
+.testimonial {
+  background-color: #000080 !important;
+}
+.store-footer__inner{
+  background-color: #000080 !important;
+  color: #fff !important;
+}
+.banner-entry div {
+  background-size: cover !important;
+}
+#mainnav {
+  height: auto !important;
+}
+.s-block.s-block--banners.container,
+section.s-block--fixed-banner .container {
+  padding: 0 !important;
+}
+.store-footer__inner {
+  border-top-right-radius: 55px;
+  border-top-left-radius: 55px;
+}
+.store-footer__inner > * {
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+.navbar-brand img {
+  max-width: 205px !important;
+  max-height: 3rem !important;
+}
+@media screen and (min-width: 640px) {
+  .navbar-brand img {
+    max-width: 205px !important;
+    max-height: 3rem !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .navbar-brand img {
+    max-height: 3rem !important;
+  }
+  .main-nav-container.fixed-header img {
+    max-height:3rem !important;
+  }
+}
+header.store-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+  background-color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .main-nav-container.fixed-header .inner {
+    top: 51px;
+    height: auto;
+    box-shadow: 0 0 0 transparent;
+  }
+}
+.main-nav-container.fixed-header .inner {
+  top: 51px;
+  height: auto;
+  box-shadow: 0 0 0 transparent;
+}
+@media screen and (max-width: 678px) {
+  .s-block--features__item {
+    padding: 0 !important;
+  }
+}
+.s-block.home-slider {
+  margin-top: -30px !important;
+}
+.q8c6tt-3 ~ div {
+  display: none;
+}
+salla-products-list {
+  padding: 10px !important;
+}
+.carousel-slider .swiper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+salla-slider .swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -0.25rem !important;
+}
+.swiper-pagination-bullet {
+  background-color: #e6cdce !important;
+}
+section.s-block--banners .grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px !important;
+}
+section.s-block--banners .grid .two-row .banner-entry:first-child {
+  grid-column: unset !important;
+  grid-row: unset !important;
+}
+section.s-block--banners .grid .banner-entry {
+  height: 24vw  !important;
+}
+@media screen and (max-width: 768px) {
+  section.s-block--banners .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  section.s-block--banners .grid .banner-entry {
+    height: 48vw  !important;
+  }
+}
+.s-block-tabs {
+    padding-top :0 !important;
+    padding-bottom:  0 !important;
+    background-color: #fff !important;
+}
+@media (min-width: 768px) {
+  .s-slider-block__title {
+    margin-bottom: 0 !important;
+  }
+}
+.s-block--fixed-banner:last-of-type,
+.s-slider-block__title {
+  margin-bottom: 0 !important;
+}
+.store-footer {
+  margin-top: 0 !important;
+  background-color: #000080 !important;
+}
+@media (min-width: 640px) {
+  .two-row .banner-entry:first-child {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+}
+salla-slider.photos-slider .swiper{
+    padding-bottom: 0 !important;
+}
+#whatsappButton {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #f8a337;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 27px;
+  color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+#mobile-menu #blog{
+  display: none !important;
+}
