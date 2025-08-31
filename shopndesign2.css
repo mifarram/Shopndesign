@@ -70,6 +70,43 @@ header.store-header {
   position: static !important;
   */
 }
+/* --- PATCH: user menu children + icon sizing --- */
+.s-user-menu-wrapper a,
+.s-user-menu-wrapper button,
+.s-user-menu-wrapper li > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--nav-h);
+  padding-block: 0;
+  line-height: 1;
+}
+
+.s-user-menu-wrapper i,
+.s-user-menu-wrapper svg {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Ensure SVGs inherit the text color */
+.s-user-menu-wrapper svg,
+.s-user-menu-wrapper svg path {
+  fill: currentColor !important;
+}
+
+/* Keep correct height when sticky */
+.main-nav-container.fixed-header .s-user-menu-wrapper {
+  height: var(--nav-h) !important;
+}
+
+/* If the user menu is a list, avoid stray padding */
+.s-user-menu-wrapper ul,
+.s-user-menu-wrapper li {
+  margin: 0;
+  padding: 0;
+}
 
 
 /* ---------- Titles / direction ---------- */
@@ -171,3 +208,5 @@ salla-products-list { padding: 10px !important; }
 @media (max-width: 450px) {
   .navbar-brand img, .main-nav-container.fixed-header img { max-height: var(--nav-h) !important; }
 }
+
+.testimonial { background-color: transparent !important; color: inherit !important; }
