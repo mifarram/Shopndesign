@@ -14,7 +14,8 @@
 }
 
 /* ---------- Base ---------- */
-html, body, * { font-family: var(--font-stack) !important; }
+html, body, button, input, select, textarea {
+  font-family: var(--font-stack);
 body { background: var(--bg) !important; }
 
 /* ---------- Top bar ---------- */
@@ -57,55 +58,77 @@ header.store-header {
 .navbar-brand img,
 .main-nav-container.fixed-header img { max-width: 205px !important; max-height: var(--nav-h) !important; }
 
-/* --- User menu: enforce header height & centering --- */
+/* --- NAV: avoid tall text line-boxes that push items out --- */
+#mainnav .inner { line-height: 1 !important; }
+
+/* --- USER MENU: make items fit the 48px header --- */
+:root { --user-icon: 40px; } /* must be <= --nav-h (48px) */
+
 .s-user-menu-wrapper {
   height: var(--nav-h) !important;
   display: flex !important;
   align-items: center !important;
   gap: 8px;
-  margin-block: 0;
-  box-sizing: border-box;
-  color: var(--brand) !important;
-  /* If the theme absolutely positions it, un-comment:
-  position: static !important;
-  */
+  padding-inline: 8px;
 }
-/* --- PATCH: user menu children + icon sizing --- */
+
+/* Each clickable fills the header height; icons centered */
 .s-user-menu-wrapper a,
 .s-user-menu-wrapper button,
 .s-user-menu-wrapper li > a {
+  position: relative;                 /* for the badge */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--nav-h);
-  padding-block: 0;
-  line-height: 1;
+  height: var(--nav-h);
+  padding: 0 6px;
+  line-height: 1 !important;
 }
 
+/* The circular visual button (cart, wishlist, avatar, etc.) */
+.s-user-menu-wrapper .btn-circle,
+.s-user-menu-wrapper .icon-btn,
+.s-user-menu-wrapper .avatar,
+.s-user-menu-wrapper .s-circle,
+.s-user-menu-wrapper [class*="icon"],
+.s-user-menu-wrapper [class*="avatar"] {
+  width: var(--user-icon) !important;
+  height: var(--user-icon) !important;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Actual glyph size */
 .s-user-menu-wrapper i,
 .s-user-menu-wrapper svg {
-  width: 22px;
-  height: 22px;
-  font-size: 22px;
-  line-height: 1;
+  width: 22px; height: 22px; font-size: 22px; line-height: 1;
 }
-
-/* Ensure SVGs inherit the text color */
 .s-user-menu-wrapper svg,
-.s-user-menu-wrapper svg path {
-  fill: currentColor !important;
+.s-user-menu-wrapper svg path { fill: currentColor !important; }
+
+/* Badge after downscaling */
+.s-user-menu-wrapper .badge,
+.s-user-menu-wrapper .s-badge {
+  position: absolute;
+  top: 2px !important;
+  right: 2px !important;
+  transform: none !important;
 }
 
-/* Keep correct height when sticky */
+/* Sticky state too */
 .main-nav-container.fixed-header .s-user-menu-wrapper {
   height: var(--nav-h) !important;
 }
 
-/* If the user menu is a list, avoid stray padding */
-.s-user-menu-wrapper ul,
-.s-user-menu-wrapper li {
-  margin: 0;
-  padding: 0;
+/* Escape hatch: kill any hardcoded 56px circles from theme/inline styles */
+.s-user-menu-wrapper [style*="56px"],
+.s-user-menu-wrapper .btn-circle,
+.s-user-menu-wrapper .s-circle {
+  width: var(--user-icon) !important;
+  height: var(--user-icon) !important;
+  line-height: var(--user-icon) !important;
 }
 
 
