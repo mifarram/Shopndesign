@@ -62,8 +62,6 @@ header.store-header {
 #mainnav .inner { line-height: 1 !important; }
 
 /* --- USER MENU: make items fit the 48px header --- */
-:root { --user-icon: 40px; } /* must be <= --nav-h (48px) */
-
 .s-user-menu-wrapper {
   height: var(--nav-h) !important;
   display: flex !important;
