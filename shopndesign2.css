@@ -1,0 +1,158 @@
+/* ==== Shop N Design — theme overrides (refactored) ==== */
+/* Webfont note: ensure arabicfont.css defines proper @font-face sources for HelveticaNeue weights. */
+@import url(https://mifarram.github.io/Shopndesign-Fonts/arabicfont.css);
+
+/* ---------- Design tokens ---------- */
+:root{
+  --brand: #000080;            /* Navy */
+  --accent: #f8a337;           /* Orange */
+  --bg: #ffffff;
+  --text-on-brand: #ffffff;
+  --muted-bullet: #cbd5e1;     /* Light gray-blue for dots */
+  --nav-h: 48px;
+  --font-stack: HelveticaNeue, sans-serif;
+}
+
+/* ---------- Base ---------- */
+html, body, * { font-family: var(--font-stack) !important; }
+body { background: var(--bg) !important; }
+
+/* ---------- Top bar ---------- */
+.top-navbar { background: var(--brand); color: var(--text-on-brand) !important; }
+.top-navbar .s-search-input { border: none; background-color: #fff; }
+
+/* ---------- Main nav / header ---------- */
+#mainnav { min-height: var(--nav-h) !important; height: auto !important; }
+#mainnav .container,
+.s-block.s-block--banners.container { width: 100% !important; max-width: 100% !important; }
+
+#mainnav .inner {
+  min-height: var(--nav-h) !important;
+  display: flex; align-items: center;
+  background-color: var(--bg) !important;
+}
+#mainnav .inner > *,
+.breadcrumbs li > *,
+.main-nav-container i,
+.main-nav-container.fixed-header i { color: var(--brand) !important; }
+
+/* Fixed (sticky) state */
+header.store-header {
+  position: sticky !important; top: 0 !important; z-index: 999 !important; background-color: var(--bg);
+}
+.main-nav-container.fixed-header .inner {
+  height: var(--nav-h) !important;
+  position: relative; top: 0 !important;
+  box-shadow: none !important;
+  background-color: var(--bg) !important;
+}
+
+/* Kill nav animations (non-animated) */
+.main-nav-container,
+.main-nav-container .inner,
+.main-nav-container.fixed-header,
+.main-nav-container.fixed-header .inner { animation: none !important; transition: none !important; }
+
+/* Branding images */
+.navbar-brand img,
+.main-nav-container.fixed-header img { max-width: 205px !important; max-height: var(--nav-h) !important; }
+
+/* ---------- Titles / direction ---------- */
+[dir='ltr'] .s-slider-block__title h2,
+[dir='rtl'] .s-slider-block__title h2 { font-size: 1.5rem !important; color: var(--brand) !important; }
+[dir='rtl'] .s-slider-block__title h2 { text-align: right; }
+[dir='ltr'] .s-slider-block__title h2 { text-align: left; }
+.s-slider-block__title-right { flex-grow: 1; text-align: center; }
+
+/* ---------- Sections / blocks ---------- */
+.s-block { margin-top: 0 !important; margin-bottom: 1.5rem !important; }
+.banner--fixed img { background: transparent !important; }
+.banner-entry,
+.s-block--hero-slider .swiper-slide,
+.s-block--hero-slider .swiper-slide .swiper-lazy:after,
+section.s-block--banners .grid { background-color: transparent !important; }
+
+.s-block-tabs { padding-top: 0 !important; padding-bottom: 0 !important; background-color: var(--bg) !important; }
+.s-block.home-slider { margin-top: -30px !important; }
+
+/* ---------- Products ---------- */
+.s-product-card-vertical { flex-direction: column; outline: transparent solid 1px !important; }
+.s-product-card-content-title a { text-align: center !important; font-size: 1rem !important; }
+.main-menu, .s-product-card-content-sub { display: flex; justify-content: center !important; }
+.s-product-card-price, .s-product-card-sale-price * { font-size: 1rem !important; }
+.s-product-card-image img { max-height: 350px !important; }
+.s-product-card-content-footer button {
+  background: var(--brand) !important; border: 1px solid var(--brand);
+  border-radius: 15px !important; color: var(--text-on-brand) !important;
+  font-size: 1rem !important; padding: 10px !important;
+}
+
+/* ---------- Sliders ---------- */
+.swiper-wrapper { margin: 30px 0 !important; }
+.carousel-slider .swiper { padding-left: 0 !important; padding-right: 0 !important; }
+salla-slider.photos-slider .swiper { padding-bottom: 0 !important; }
+salla-slider .swiper-pagination-bullets.swiper-pagination-horizontal { bottom: -0.25rem !important; }
+.swiper-pagination-bullet { background-color: var(--muted-bullet) !important; }
+.swiper-pagination-bullet-active { background-color: var(--brand) !important; }
+/* Keep arrow hover white (as per original) */
+.s-slider-nav-arrow:not(:disabled):hover { background-color: var(--bg) !important; }
+
+/* ---------- Banners grid ---------- */
+section.s-block--banners .grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px !important;
+}
+section.s-block--banners .grid .two-row .banner-entry:first-child { grid-column: unset !important; grid-row: unset !important; }
+section.s-block--banners .grid .banner-entry { height: 24vw !important; }
+.banner-entry div { background-size: cover !important; }
+
+/* ---------- Footer ---------- */
+.store-footer { margin-top: 0 !important; background-color: var(--brand) !important; }
+.store-footer__inner{
+  background-color: var(--brand) !important; color: var(--text-on-brand) !important;
+  border-top-right-radius: 55px; border-top-left-radius: 55px;
+}
+.store-footer__inner > * { font-weight: 600 !important; color: var(--text-on-brand) !important; }
+
+/* ---------- WhatsApp FAB ---------- */
+/* Kept accent (orange) per original; switch to var(--brand) if you want it navy */
+#whatsappButton {
+  position: fixed; bottom: 100px; right: 20px; width: 60px; height: 60px;
+  background-color: var(--accent);
+  border-radius: 50%; text-align: center; font-size: 27px; color: #fff;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3); cursor: pointer;
+  display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+#whatsappButton i, .store-footer__inner > *, .testimonial { color: #fff !important; }
+#whatsappButton:hover, .s-block--features__item .feature-icon, .testimonial { background-color: var(--brand) !important; }
+
+/* ---------- Misc ---------- */
+.mm-spn.mm-spn--navbar:after { text-align: center !important; }
+salla-products-list { padding: 10px !important; }
+
+/* Hide “Blog” in mobile menu */
+#mobile-menu #blog{ display: none !important; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1280px) {
+  .s-block.s-block--fixed-banner > .container { width: 100% !important; max-width: 100% !important; }
+}
+@media (min-width: 768px) {
+  .s-slider-block__title { margin-bottom: 0 !important; }
+}
+@media (min-width: 640px) {
+  .two-row .banner-entry:first-child { grid-column: unset !important; grid-row: unset !important; }
+}
+@media (max-width: 1024px) {
+  .main-nav-container.fixed-header .inner { height: var(--nav-h) !important; top: 0 !important; box-shadow: none !important; }
+}
+@media (max-width: 768px) {
+  section.s-block--banners .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  section.s-block--banners .grid .banner-entry { height: 48vw !important; }
+}
+@media (max-width: 678px) {
+  .s-block--features__item { padding: 0 !important; }
+}
+@media (max-width: 450px) {
+  .navbar-brand img, .main-nav-container.fixed-header img { max-height: var(--nav-h) !important; }
+}
