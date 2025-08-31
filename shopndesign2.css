@@ -122,14 +122,6 @@ header.store-header {
   height: var(--nav-h) !important;
 }
 
-/* Escape hatch: kill any hardcoded 56px circles from theme/inline styles */
-.s-user-menu-wrapper [style*="56px"],
-.s-user-menu-wrapper .btn-circle,
-.s-user-menu-wrapper .s-circle {
-  width: var(--user-icon) !important;
-  height: var(--user-icon) !important;
-  line-height: var(--user-icon) !important;
-}
 
 
 /* ---------- Titles / direction ---------- */
