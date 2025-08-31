@@ -57,6 +57,21 @@ header.store-header {
 .navbar-brand img,
 .main-nav-container.fixed-header img { max-width: 205px !important; max-height: var(--nav-h) !important; }
 
+/* --- User menu: enforce header height & centering --- */
+.s-user-menu-wrapper {
+  height: var(--nav-h) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+  margin-block: 0;
+  box-sizing: border-box;
+  color: var(--brand) !important;
+  /* If the theme absolutely positions it, un-comment:
+  position: static !important;
+  */
+}
+
+
 /* ---------- Titles / direction ---------- */
 [dir='ltr'] .s-slider-block__title h2,
 [dir='rtl'] .s-slider-block__title h2 { font-size: 1.5rem !important; color: var(--brand) !important; }
