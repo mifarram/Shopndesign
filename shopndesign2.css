@@ -65,7 +65,6 @@ header.store-header {
 
   .s-user-menu-wrapper {
     display: block;
-    min-width: -moz-max-content;
     min-width: auto;
     flex-shrink: 0;
 }
