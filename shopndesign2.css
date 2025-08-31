@@ -61,66 +61,6 @@ header.store-header {
 /* --- NAV: avoid tall text line-boxes that push items out --- */
 #mainnav .inner { line-height: 1 !important; }
 
-/* --- USER MENU: make items fit the 48px header --- */
-.s-user-menu-wrapper {
-  height: var(--nav-h) !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px;
-  padding-inline: 8px;
-}
-
-/* Each clickable fills the header height; icons centered */
-.s-user-menu-wrapper a,
-.s-user-menu-wrapper button,
-.s-user-menu-wrapper li > a {
-  position: relative;                 /* for the badge */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--nav-h);
-  padding: 0 6px;
-  line-height: 1 !important;
-}
-
-/* The circular visual button (cart, wishlist, avatar, etc.) */
-.s-user-menu-wrapper .btn-circle,
-.s-user-menu-wrapper .icon-btn,
-.s-user-menu-wrapper .avatar,
-.s-user-menu-wrapper .s-circle,
-.s-user-menu-wrapper [class*="icon"],
-.s-user-menu-wrapper [class*="avatar"] {
-  width: var(--user-icon) !important;
-  height: var(--user-icon) !important;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Actual glyph size */
-.s-user-menu-wrapper i,
-.s-user-menu-wrapper svg {
-  width: 22px; height: 22px; font-size: 22px; line-height: 1;
-}
-.s-user-menu-wrapper svg,
-.s-user-menu-wrapper svg path { fill: currentColor !important; }
-
-/* Badge after downscaling */
-.s-user-menu-wrapper .badge,
-.s-user-menu-wrapper .s-badge {
-  position: absolute;
-  top: 2px !important;
-  right: 2px !important;
-  transform: none !important;
-}
-
-/* Sticky state too */
-.main-nav-container.fixed-header .s-user-menu-wrapper {
-  height: var(--nav-h) !important;
-}
-
-
 
 /* ---------- Titles / direction ---------- */
 [dir='ltr'] .s-slider-block__title h2,
