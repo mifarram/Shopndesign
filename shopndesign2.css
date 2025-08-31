@@ -61,7 +61,17 @@ header.store-header {
 /* --- NAV: avoid tall text line-boxes that push items out --- */
 #mainnav .inner { line-height: 1 !important; }
 
+/* account icon Adjustment */
 
+  .s-user-menu-wrapper {
+    display: block;
+    min-width: -moz-max-content;
+    min-width: auto;
+    flex-shrink: 0;
+}
+
+  
+  
 /* ---------- Titles / direction ---------- */
 [dir='ltr'] .s-slider-block__title h2,
 [dir='rtl'] .s-slider-block__title h2 { font-size: 1.5rem !important; color: var(--brand) !important; }
