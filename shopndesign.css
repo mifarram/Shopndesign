@@ -126,7 +126,7 @@ salla-slider.photos-slider .swiper-slide {
   background-size: cover !important;
 }
 #mainnav {
-  height: auto !important;
+  height: 48px !important;
 }
 .s-block.s-block--banners.container,
 section.s-block--fixed-banner .container {
@@ -142,20 +142,20 @@ section.s-block--fixed-banner .container {
 }
 .navbar-brand img {
   max-width: 205px !important;
-  max-height: 3rem !important;
+  max-height: 48px !important;
 }
 @media screen and (min-width: 640px) {
   .navbar-brand img {
     max-width: 205px !important;
-    max-height: 3rem !important;
+    max-height: 48px !important;
   }
 }
 @media screen and (max-width: 450px) {
   .navbar-brand img {
-    max-height: 3rem !important;
+    max-height: 48px !important;
   }
   .main-nav-container.fixed-header img {
-    max-height:3rem !important;
+    max-height:48px !important;
   }
 }
 header.store-header {
@@ -167,13 +167,13 @@ header.store-header {
 @media screen and (max-width: 1024px) {
   .main-nav-container.fixed-header .inner {
     top: 51px;
-    height: auto;
+    height: 48px;
     box-shadow: 0 0 0 transparent;
   }
 }
 .main-nav-container.fixed-header .inner {
   top: 51px;
-  height: auto;
+  height: 48px;
   box-shadow: 0 0 0 transparent;
 }
 @media screen and (max-width: 678px) {
