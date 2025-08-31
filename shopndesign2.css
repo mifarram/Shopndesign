@@ -1,4 +1,4 @@
-/* ==== Shop N Design — theme overrides (refactored) ==== */
+/* ==== Shop N Design — theme overrides (refactored & fixed) ==== */
 /* Webfont note: ensure arabicfont.css defines proper @font-face sources for HelveticaNeue weights. */
 @import url(https://mifarram.github.io/Shopndesign-Fonts/arabicfont.css);
 
@@ -9,44 +9,54 @@
   --bg: #ffffff;
   --text-on-brand: #ffffff;
   --muted-bullet: #cbd5e1;     /* Light gray-blue for dots */
-  --nav-h: 48px;
+  --nav-h: 48px;               /* Header bar height */
+  --user-icon: 40px;           /* Circle icon/button size (≤ --nav-h) */
   --font-stack: HelveticaNeue, sans-serif;
 }
 
 /* ---------- Base ---------- */
-html, body, button, input, select, textarea {
-  font-family: var(--font-stack);
+html, body, button, input, select, textarea { font-family: var(--font-stack); }  /* (fixed missing brace) */
 body { background: var(--bg) !important; }
 
 /* ---------- Top bar ---------- */
 .top-navbar { background: var(--brand); color: var(--text-on-brand) !important; }
 .top-navbar .s-search-input { border: none; background-color: #fff; }
+.top-navbar .s-search-input:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
 /* ---------- Main nav / header ---------- */
-#mainnav { min-height: var(--nav-h) !important; height: auto !important; }
+/* Force a single exact bar height (prevents stray min-heights from stretching) */
+#mainnav,
+.main-nav-container { height: var(--nav-h) !important; }
+
 #mainnav .container,
 .s-block.s-block--banners.container { width: 100% !important; max-width: 100% !important; }
 
-#mainnav .inner {
-  min-height: var(--nav-h) !important;
+#mainnav .inner,
+.main-nav-container .inner {
+  height: 100% !important;
+  padding-block: 0 !important;
+  line-height: 1 !important;                /* avoids tall line boxes */
   display: flex; align-items: center;
   background-color: var(--bg) !important;
+  box-sizing: border-box;
 }
+
 #mainnav .inner > *,
 .breadcrumbs li > *,
 .main-nav-container i,
 .main-nav-container.fixed-header i { color: var(--brand) !important; }
 
-/* Fixed (sticky) state */
+/* Brand block: fill bar and center logo */
+.navbar-brand { display: flex; align-items: center; height: 100%; }
+.navbar-brand img,
+.main-nav-container.fixed-header img { max-width: 205px !important; max-height: calc(var(--nav-h) - 8px) !important; }
+
+/* Fixed (sticky) state mirrors base height */
 header.store-header {
   position: sticky !important; top: 0 !important; z-index: 999 !important; background-color: var(--bg);
 }
-.main-nav-container.fixed-header .inner {
-  height: var(--nav-h) !important;
-  position: relative; top: 0 !important;
-  box-shadow: none !important;
-  background-color: var(--bg) !important;
-}
+.main-nav-container.fixed-header,
+.main-nav-container.fixed-header .inner { height: var(--nav-h) !important; box-shadow: none !important; }
 
 /* Kill nav animations (non-animated) */
 .main-nav-container,
@@ -54,23 +64,76 @@ header.store-header {
 .main-nav-container.fixed-header,
 .main-nav-container.fixed-header .inner { animation: none !important; transition: none !important; }
 
-/* Branding images */
-.navbar-brand img,
-.main-nav-container.fixed-header img { max-width: 205px !important; max-height: var(--nav-h) !important; }
+/* Remove stray bullets/padding from nav lists */
+#mainnav .main-menu,
+#mainnav .main-menu ul,
+#mainnav .main-menu li { list-style: none; margin: 0; padding: 0; }
 
-/* --- NAV: avoid tall text line-boxes that push items out --- */
-#mainnav .inner { line-height: 1 !important; }
+/* ---------- User menu (account/cart/fav) ---------- */
+.s-user-menu-wrapper {
+  height: 100% !important;                  /* inherit bar height */
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+  padding-inline: 8px;
+  flex: 0 0 auto;
+}
+.s-user-menu-wrapper * { box-sizing: border-box; }
 
-/* account icon Adjustment */
-
-  .s-user-menu-wrapper {
-    display: block;
-    min-width: auto;
-    flex-shrink: 0;
+.s-user-menu-wrapper a,
+.s-user-menu-wrapper button,
+.s-user-menu-wrapper li > a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;                  /* fill the 48px bar */
+  min-height: 0 !important;
+  padding: 0 6px !important;                /* no vertical padding */
+  line-height: 1 !important;
+  border: 0;
+  background: transparent;
 }
 
-  
-  
+/* Clamp all circular icon containers */
+.s-user-menu-wrapper .btn-circle,
+.s-user-menu-wrapper .icon-btn,
+.s-user-menu-wrapper .avatar,
+.s-user-menu-wrapper .s-circle,
+.s-user-menu-wrapper [class*="icon"],
+.s-user-menu-wrapper [class*="avatar"] {
+  width: var(--user-icon) !important;
+  height: var(--user-icon) !important;
+  min-width: var(--user-icon) !important;
+  min-height: var(--user-icon) !important;
+  line-height: var(--user-icon) !important;
+  padding: 0 !important;
+  border-radius: 50%;
+  transform: none !important;
+}
+
+.s-user-menu-wrapper i,
+.s-user-menu-wrapper svg { width: 20px; height: 20px; font-size: 20px; line-height: 1; }
+.s-user-menu-wrapper svg, .s-user-menu-wrapper svg path { fill: currentColor !important; }
+
+.s-user-menu-wrapper .badge,
+.s-user-menu-wrapper .s-badge {
+  position: absolute;
+  top: 2px !important;
+  right: 2px !important;
+  transform: none !important;
+}
+
+/* Optional: dropdown sizing under the bar */
+.s-user-menu-wrapper .dropdown-menu {
+  top: calc(100% + 8px) !important;
+  margin-top: 0 !important;
+  border-radius: 12px;
+  padding: 8px 12px;
+  max-height: 70vh;
+  overflow: auto;
+}
+
 /* ---------- Titles / direction ---------- */
 [dir='ltr'] .s-slider-block__title h2,
 [dir='rtl'] .s-slider-block__title h2 { font-size: 1.5rem !important; color: var(--brand) !important; }
@@ -108,7 +171,7 @@ salla-slider.photos-slider .swiper { padding-bottom: 0 !important; }
 salla-slider .swiper-pagination-bullets.swiper-pagination-horizontal { bottom: -0.25rem !important; }
 .swiper-pagination-bullet { background-color: var(--muted-bullet) !important; }
 .swiper-pagination-bullet-active { background-color: var(--brand) !important; }
-/* Keep arrow hover white (as per original) */
+/* Keep arrow hover white */
 .s-slider-nav-arrow:not(:disabled):hover { background-color: var(--bg) !important; }
 
 /* ---------- Banners grid ---------- */
@@ -129,7 +192,6 @@ section.s-block--banners .grid .banner-entry { height: 24vw !important; }
 .store-footer__inner > * { font-weight: 600 !important; color: var(--text-on-brand) !important; }
 
 /* ---------- WhatsApp FAB ---------- */
-/* Kept accent (orange) per original; switch to var(--brand) if you want it navy */
 #whatsappButton {
   position: fixed; bottom: 100px; right: 20px; width: 60px; height: 60px;
   background-color: var(--accent);
@@ -138,7 +200,8 @@ section.s-block--banners .grid .banner-entry { height: 24vw !important; }
   display: flex; justify-content: center; align-items: center; z-index: 1000;
 }
 #whatsappButton i, .store-footer__inner > *, .testimonial { color: #fff !important; }
-#whatsappButton:hover, .s-block--features__item .feature-icon, .testimonial { background-color: var(--brand) !important; }
+/* removed `.testimonial` from the navy background rule to avoid conflict */
+#whatsappButton:hover, .s-block--features__item .feature-icon { background-color: var(--brand) !important; }
 
 /* ---------- Misc ---------- */
 .mm-spn.mm-spn--navbar:after { text-align: center !important; }
@@ -154,11 +217,9 @@ salla-products-list { padding: 10px !important; }
 @media (min-width: 768px) {
   .s-slider-block__title { margin-bottom: 0 !important; }
 }
-@media (min-width: 640px) {
-  .two-row .banner-entry:first-child { grid-column: unset !important; grid-row: unset !important; }
-}
 @media (max-width: 1024px) {
-  .main-nav-container.fixed-header .inner { height: var(--nav-h) !important; top: 0 !important; box-shadow: none !important; }
+  .main-nav-container.fixed-header,
+  .main-nav-container.fixed-header .inner { height: var(--nav-h) !important; }
 }
 @media (max-width: 768px) {
   section.s-block--banners .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -171,4 +232,5 @@ salla-products-list { padding: 10px !important; }
   .navbar-brand img, .main-nav-container.fixed-header img { max-height: var(--nav-h) !important; }
 }
 
+/* Explicitly keep testimonials neutral */
 .testimonial { background-color: transparent !important; color: inherit !important; }
