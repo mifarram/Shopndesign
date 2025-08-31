@@ -66,7 +66,7 @@ body {
   margin: 30px 0 !important;
 }
 #mainnav .inner,
-.main-nav-container.shadow-default.bg-white.fixed-pinned animated.fixed-header,
+.main-nav-container.shadow-default.bg-white.fixed-pinned.fixed-header,
 .s-slider-nav-arrow:not(:disabled):hover {
   background-color: #fff !important;
 }
